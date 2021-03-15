@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 07:57 AM
+-- Generation Time: Mar 15, 2021 at 08:43 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -21,84 +21,12 @@ SET time_zone = "+00:00";
 -- Database: `new era`
 --
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_commentmeta`
---
-
-CREATE TABLE `wp_commentmeta` (
-  `meta_id` bigint(20) UNSIGNED NOT NULL,
-  `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_comments`
---
-
-CREATE TABLE `wp_comments` (
-  `comment_ID` bigint(20) UNSIGNED NOT NULL,
-  `comment_post_ID` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `comment_author` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `comment_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment_karma` int(11) NOT NULL DEFAULT 0,
-  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'comment',
-  `comment_parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Dumping data for table `wp_comments`
 --
 
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
 (1, 1, 'A WordPress Commenter', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2021-03-10 02:15:28', '2021-03-10 02:15:28', 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.', 0, '1', '', 'comment', 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_links`
---
-
-CREATE TABLE `wp_links` (
-  `link_id` bigint(20) UNSIGNED NOT NULL,
-  `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_target` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_visible` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Y',
-  `link_owner` bigint(20) UNSIGNED NOT NULL DEFAULT 1,
-  `link_rating` int(11) NOT NULL DEFAULT 0,
-  `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_options`
---
-
-CREATE TABLE `wp_options` (
-  `option_id` bigint(20) UNSIGNED NOT NULL,
-  `option_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `option_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `wp_options`
@@ -211,7 +139,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (104, 'widget_archives', 'a:2:{i:2;a:3:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}', 'yes'),
 (105, 'widget_meta', 'a:2:{i:2;a:1:{s:5:\"title\";s:0:\"\";}s:12:\"_multiwidget\";i:1;}', 'yes'),
 (106, 'sidebars_widgets', 'a:7:{s:19:\"wp_inactive_widgets\";a:0:{}s:9:\"sidebar-1\";a:0:{}s:23:\"mesmerize_pages_sidebar\";a:0:{}s:17:\"first_box_widgets\";a:1:{i:0;s:10:\"nav_menu-3\";}s:18:\"second_box_widgets\";a:1:{i:0;s:10:\"nav_menu-4\";}s:17:\"third_box_widgets\";a:1:{i:0;s:10:\"nav_menu-5\";}s:13:\"array_version\";i:3;}', 'yes'),
-(107, 'cron', 'a:9:{i:1615792530;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1615817730;a:3:{s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1615817763;a:1:{s:18:\"wp_https_detection\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1615860929;a:1:{s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1615860941;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1615860945;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1615863074;a:1:{s:28:\"elementor/tracker/send_event\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1616033729;a:1:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}s:7:\"version\";i:2;}', 'yes'),
+(107, 'cron', 'a:9:{i:1615796130;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1615817730;a:3:{s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1615817763;a:1:{s:18:\"wp_https_detection\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1615860929;a:1:{s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1615860941;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1615860945;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1615863074;a:1:{s:28:\"elementor/tracker/send_event\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1616033729;a:1:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}s:7:\"version\";i:2;}', 'yes'),
 (108, 'widget_pages', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
 (109, 'widget_calendar', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
 (110, 'widget_media_audio', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
@@ -301,19 +229,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (296, '_site_transient_php_check_dfc1ea61a768032146a7035f8bd1d77a', 'a:5:{s:19:\"recommended_version\";s:3:\"7.4\";s:15:\"minimum_version\";s:6:\"5.6.20\";s:12:\"is_supported\";b:1;s:9:\"is_secure\";b:1;s:13:\"is_acceptable\";b:1;}', 'no'),
 (297, '_site_transient_timeout_theme_roots', '1615792334', 'no'),
 (298, '_site_transient_theme_roots', 'a:2:{s:9:\"highlight\";s:7:\"/themes\";s:9:\"mesmerize\";s:7:\"/themes\";}', 'no');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_postmeta`
---
-
-CREATE TABLE `wp_postmeta` (
-  `meta_id` bigint(20) UNSIGNED NOT NULL,
-  `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -488,7 +403,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (177, 67, '_wp_trash_meta_status', 'publish'),
 (178, 67, '_wp_trash_meta_time', '1615345766'),
 (179, 2, '_edit_lock', '1615345680:1'),
-(180, 69, '_edit_lock', '1615791432:1'),
+(180, 69, '_edit_lock', '1615794160:1'),
 (181, 69, '_elementor_edit_mode', 'builder'),
 (182, 69, '_elementor_template_type', 'wp-page'),
 (183, 69, '_elementor_version', '3.1.1'),
@@ -1215,38 +1130,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (999, 227, '_elementor_data', '[{\"id\":\"2f5dc98\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\"},\"elements\":[{\"id\":\"fbc0ca2\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"d9d88f3\",\"elType\":\"widget\",\"settings\":{\"text\":\"Learn More\",\"align\":\"center\",\"size\":\"md\",\"button_text_color\":\"#FFFFFF\",\"background_color\":\"#909090\",\"border_border\":\"solid\",\"border_color\":\"#000000\",\"_position\":\"absolute\",\"_offset_x\":{\"size\":435,\"unit\":\"px\"},\"_offset_y\":{\"size\":-86,\"unit\":\"px\"}},\"elements\":[],\"widgetType\":\"button\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"098c700\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\"},\"elements\":[{\"id\":\"eea81c7\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"e450b60\",\"elType\":\"widget\",\"settings\":{\"text\":\"ENG \\/ \\u4e2d\\u2f42\",\"align\":\"center\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Roboto\",\"typography_font_size\":{\"unit\":\"px\",\"size\":20,\"sizes\":[]},\"typography_font_weight\":\"500\",\"text_shadow_text_shadow_type\":\"yes\",\"background_color\":\"#000000\",\"border_border\":\"solid\",\"_position\":\"absolute\",\"_offset_x\":{\"size\":-639,\"unit\":\"px\"},\"_offset_y\":{\"size\":-816,\"unit\":\"px\"}},\"elements\":[],\"widgetType\":\"button\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"5448a04\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"structure\":\"30\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\",\"margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":0,\"bottom\":\"0\",\"left\":0,\"isLinked\":false},\"padding\":{\"unit\":\"px\",\"top\":\"30\",\"right\":\"0\",\"bottom\":\"150\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[{\"id\":\"265fef0\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":null},\"elements\":[{\"id\":\"3453423\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/11-1.png\",\"id\":22},\"image_size\":\"thumbnail\",\"align\":\"center\"},\"elements\":[],\"widgetType\":\"image\"},{\"id\":\"5f6f554\",\"elType\":\"widget\",\"settings\":{\"text\":\"NEUC Student\",\"align\":\"center\",\"size\":\"md\",\"icon_indent\":{\"unit\":\"px\",\"size\":0,\"sizes\":[]},\"typography_typography\":\"custom\",\"typography_font_family\":\"Times New Roman\",\"typography_font_size\":{\"unit\":\"px\",\"size\":25,\"sizes\":[]},\"typography_font_weight\":\"500\",\"button_text_color\":\"#FFFFFF\",\"background_color\":\"#131413\",\"border_border\":\"solid\"},\"elements\":[],\"widgetType\":\"button\"}],\"isInner\":false},{\"id\":\"0b0e37e\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":null},\"elements\":[{\"id\":\"a1ad977\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/staff-icon-png-12-1.png\",\"id\":19},\"image_size\":\"thumbnail\",\"align\":\"center\"},\"elements\":[],\"widgetType\":\"image\"},{\"id\":\"e343819\",\"elType\":\"widget\",\"settings\":{\"text\":\"NEUC Staff\",\"align\":\"center\",\"size\":\"md\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Times New Roman\",\"typography_font_size\":{\"unit\":\"px\",\"size\":25,\"sizes\":[]},\"typography_font_weight\":\"500\",\"button_text_color\":\"#FFFFFF\",\"background_color\":\"#000000\",\"border_border\":\"solid\"},\"elements\":[],\"widgetType\":\"button\"}],\"isInner\":false},{\"id\":\"a92a211\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":null},\"elements\":[{\"id\":\"d480ee8\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/25-1.png\",\"id\":14},\"image_size\":\"thumbnail\",\"align\":\"center\"},\"elements\":[],\"widgetType\":\"image\"},{\"id\":\"a032d83\",\"elType\":\"widget\",\"settings\":{\"text\":\"Visitors\",\"align\":\"center\",\"size\":\"md\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Times New Roman\",\"typography_font_size\":{\"unit\":\"px\",\"size\":25,\"sizes\":[]},\"typography_font_weight\":\"500\",\"button_text_color\":\"#FFFFFF\",\"background_color\":\"#000000\",\"border_border\":\"solid\"},\"elements\":[],\"widgetType\":\"button\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"3b791ee\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\"},\"elements\":[{\"id\":\"2ec6746\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"c5496da\",\"elType\":\"widget\",\"settings\":{\"width\":{\"unit\":\"%\",\"size\":80,\"sizes\":[]},\"align\":\"center\",\"text\":\"Divider\",\"weight\":{\"unit\":\"px\",\"size\":3,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"divider\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"fccfe25\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\",\"padding\":{\"unit\":\"px\",\"top\":\"10\",\"right\":\"0\",\"bottom\":\"20\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[{\"id\":\"34496b8\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"118983b\",\"elType\":\"widget\",\"settings\":{\"title\":\"Highlights\",\"align\":\"center\",\"title_color\":\"#000000\"},\"elements\":[],\"widgetType\":\"heading\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"ed9cc5e\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"content_width\":{\"unit\":\"px\",\"size\":1280,\"sizes\":[]},\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\"},\"elements\":[{\"id\":\"66805c0\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null,\"space_between_widgets\":0},\"elements\":[{\"id\":\"0463df1\",\"elType\":\"widget\",\"settings\":{\"carousel\":[{\"id\":7,\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/download-2-1.jpg\"},{\"id\":5,\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/zhengliangshu-1.jpg\"},{\"id\":6,\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/b3e16d4a-0061-4d24-b235-54d4586f8d1c-1.jpg\"}],\"thumbnail_size\":\"full\",\"slides_to_show\":\"2\"},\"elements\":[],\"widgetType\":\"image-carousel\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"1201ce6\",\"elType\":\"section\",\"settings\":{\"structure\":\"30\",\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\",\"padding\":{\"unit\":\"px\",\"top\":\"20\",\"right\":\"0\",\"bottom\":\"20\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[{\"id\":\"051f680\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":20},\"elements\":[],\"isInner\":false},{\"id\":\"a2722b6\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":49.333},\"elements\":[{\"id\":\"3377692\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/6773331f-db2c-4306-8e04-39e2d20a5f42-1.jpg\",\"id\":10},\"align\":\"center\",\"width\":{\"unit\":\"%\",\"size\":100,\"sizes\":[]},\"space\":{\"unit\":\"%\",\"size\":100,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"image\"}],\"isInner\":false},{\"id\":\"baaccc0\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":30,\"margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"70\",\"bottom\":\"0\",\"left\":\"70\",\"isLinked\":false}},\"elements\":[{\"id\":\"17522fc\",\"elType\":\"widget\",\"settings\":{\"title\":\"FACEBOOK\",\"align\":\"center\",\"title_color\":\"#FFFFFF\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Times New Roman\",\"typography_font_size\":{\"unit\":\"px\",\"size\":35,\"sizes\":[]},\"typography_font_weight\":\"600\",\"_margin\":{\"unit\":\"px\",\"top\":\"200\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"_background_background\":\"classic\",\"_background_color\":\"#000000\"},\"elements\":[],\"widgetType\":\"heading\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"c411275\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\"},\"elements\":[{\"id\":\"ce98c16\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"a3eae35\",\"elType\":\"widget\",\"settings\":{\"width\":{\"unit\":\"%\",\"size\":80,\"sizes\":[]},\"align\":\"center\",\"text\":\"Divider\",\"weight\":{\"unit\":\"px\",\"size\":2.5,\"sizes\":[]},\"_padding\":{\"unit\":\"px\",\"top\":\"10\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"divider\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"25f1616\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"structure\":\"30\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\",\"padding\":{\"unit\":\"px\",\"top\":\"10\",\"right\":\"0\",\"bottom\":\"10\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[{\"id\":\"ba1a140\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":null},\"elements\":[],\"isInner\":false},{\"id\":\"213a3f7\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":null},\"elements\":[{\"id\":\"da4284b\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"http:\\/\\/localhost\\/New%20Era\\/wp-content\\/uploads\\/2021\\/03\\/moksc-800x720-800x720-2.jpg\",\"id\":21},\"align\":\"center\"},\"elements\":[],\"widgetType\":\"image\"}],\"isInner\":false},{\"id\":\"a4f34e7\",\"elType\":\"column\",\"settings\":{\"_column_size\":33,\"_inline_size\":null},\"elements\":[],\"isInner\":false}],\"isInner\":false},{\"id\":\"5e5c5eb\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\"},\"elements\":[{\"id\":\"04558ba\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"9af3ed8\",\"elType\":\"widget\",\"settings\":{\"editor\":\"<p style=\\\"text-align: center;\\\">\\u300c\\u6559\\u80b2\\u662f\\u8b93\\u5b69\\u2f26\\u6210\\u70ba\\u5feb\\u6a02\\u2f83\\u4fe1\\u7684\\u2f08\\uff0c\\u6559\\u80b2\\u7684\\u2f3f\\u6bb5\\u548c\\u2f45\\u6cd5\\u4e5f\\u61c9\\u8a72\\u662f\\u5feb\\u6a02\\u7684\\u3002\\u5c31\\u50cf\\u2f00\\u6839<br \\/>\\u5438\\u7ba1\\uff0c\\u9019\\u982d\\u5438\\u9032\\u53bb\\u5982\\u679c\\u662f\\u82e6\\u6f80\\u7684\\u6c41\\u2f54\\uff0c\\u53e6\\u2f00\\u7aef\\u6d41\\u51fa\\u4f86\\u7684\\u7d55\\u4e0d\\u6703\\u662f\\u2f62\\u751c\\u7684\\u871c\\u6c41\\u3002\\u300d<\\/p>\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Roboto\",\"typography_font_size\":{\"unit\":\"px\",\"size\":25,\"sizes\":[]},\"typography_font_weight\":\"400\",\"typography_line_height\":{\"unit\":\"em\",\"size\":1.5,\"sizes\":[]},\"_padding\":{\"unit\":\"px\",\"top\":\"20\",\"right\":\"0\",\"bottom\":\"20\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"text-editor\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"f80e553\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#EFD387\"},\"elements\":[{\"id\":\"b94b27c\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"ddbc233\",\"elType\":\"widget\",\"settings\":{\"editor\":\"<p style=\\\"text-align: center;\\\">Mok Soon Chong<\\/p>\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Roboto\",\"typography_font_size\":{\"unit\":\"px\",\"size\":30,\"sizes\":[]},\"typography_font_weight\":\"400\",\"_padding\":{\"unit\":\"px\",\"top\":\"10\",\"right\":\"0\",\"bottom\":\"30\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"text-editor\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"7792348\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"structure\":\"20\",\"background_background\":\"classic\",\"background_color\":\"#262020\",\"padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"30\",\"isLinked\":false}},\"elements\":[{\"id\":\"5c2f064\",\"elType\":\"column\",\"settings\":{\"_column_size\":50,\"_inline_size\":75},\"elements\":[{\"id\":\"c59610c\",\"elType\":\"widget\",\"settings\":{\"editor\":\"<p>\\u65b0\\u7eaa\\u5143\\u2f24\\u5b66\\u5b66\\u9662\\u5ba3\\u4f20\\u77ed\\u2f5a New Era<br \\/>University College Propaganda<\\/p>\",\"align\":\"left\",\"text_color\":\"#FFFFFF\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Times New Roman\",\"typography_font_size\":{\"unit\":\"px\",\"size\":55,\"sizes\":[]},\"typography_font_weight\":\"600\",\"_padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"30\",\"isLinked\":false},\"typography_line_height\":{\"unit\":\"em\",\"size\":1.5,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"text-editor\"}],\"isInner\":false},{\"id\":\"ff5613a\",\"elType\":\"column\",\"settings\":{\"_column_size\":50,\"_inline_size\":25},\"elements\":[],\"isInner\":false}],\"isInner\":false},{\"id\":\"4ed868d\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"structure\":\"20\",\"background_background\":\"classic\",\"background_color\":\"#262020\",\"padding\":{\"unit\":\"px\",\"top\":\"20\",\"right\":\"0\",\"bottom\":\"20\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[{\"id\":\"e4399be\",\"elType\":\"column\",\"settings\":{\"_column_size\":50,\"_inline_size\":75,\"padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"20\",\"bottom\":\"0\",\"left\":\"20\",\"isLinked\":false}},\"elements\":[{\"id\":\"e6d00a4\",\"elType\":\"widget\",\"settings\":{\"html\":\"<iframe width=\\\"460\\\" height=\\\"455\\\" src=\\\"https:\\/\\/www.youtube.com\\/embed\\/B3oh7eY3joA\\\" frameborder=\\\"0\\\" allow=\\\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\\\" allowfullscreen><\\/iframe>\",\"_margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"50\",\"isLinked\":false},\"_padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"80\",\"bottom\":\"0\",\"left\":\"20\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"html\"}],\"isInner\":false},{\"id\":\"1d74756\",\"elType\":\"column\",\"settings\":{\"_column_size\":50,\"_inline_size\":24.999},\"elements\":[{\"id\":\"6b374c9\",\"elType\":\"widget\",\"settings\":{\"editor\":\"<p style=\\\"text-align: center;\\\"><span style=\\\"color: #ffffff;\\\">Home<\\/span><\\/p><p style=\\\"text-align: center;\\\"><span style=\\\"color: #ffffff;\\\">About NEUC<\\/span><\\/p><p style=\\\"text-align: center;\\\"><span style=\\\"color: #ffffff;\\\">Programme &amp; Faculty<\\/span><\\/p><p style=\\\"text-align: center;\\\"><span style=\\\"color: #ffffff;\\\">Campus Life<\\/span><\\/p><p style=\\\"text-align: center;\\\"><span style=\\\"color: #ffffff;\\\">Career<\\/span><\\/p><p style=\\\"text-align: center;\\\"><span style=\\\"color: #ffffff;\\\">Contact Us<\\/span><\\/p>\",\"align\":\"center\",\"text_color\":\"#7A7A7A\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Roboto\",\"typography_font_size\":{\"unit\":\"px\",\"size\":30,\"sizes\":[]},\"typography_font_weight\":\"400\",\"typography_line_height\":{\"unit\":\"em\",\"size\":1.5,\"sizes\":[]},\"_padding\":{\"unit\":\"px\",\"top\":\"50\",\"right\":\"30\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"text-editor\"}],\"isInner\":false}],\"isInner\":false},{\"id\":\"5f00474\",\"elType\":\"section\",\"settings\":{\"layout\":\"full_width\",\"gap\":\"no\",\"stretch_section\":\"section-stretched\",\"background_background\":\"classic\",\"background_color\":\"#262020\"},\"elements\":[{\"id\":\"9854a08\",\"elType\":\"column\",\"settings\":{\"_column_size\":100,\"_inline_size\":null},\"elements\":[{\"id\":\"4d78691\",\"elType\":\"widget\",\"settings\":{\"editor\":\"<p><span style=\\\"color: #ffffff;\\\">Basically , this is our university student shor sity student short introduction about their college life and the courses that they tak ses that they taken. <\\/span><\\/p>\",\"text_color\":\"#7A7A7A\",\"typography_typography\":\"custom\",\"typography_font_family\":\"Roboto\",\"typography_font_size\":{\"unit\":\"px\",\"size\":18,\"sizes\":[]},\"typography_font_weight\":\"400\",\"_padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"20\",\"left\":\"80\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"text-editor\"}],\"isInner\":false}],\"isInner\":false}]'),
 (1000, 227, '_elementor_controls_usage', 'a:9:{s:6:\"button\";a:3:{s:5:\"count\";i:5;s:15:\"control_percent\";i:4;s:8:\"controls\";a:3:{s:7:\"content\";a:1:{s:14:\"section_button\";a:4:{s:4:\"text\";i:5;s:5:\"align\";i:5;s:4:\"size\";i:4;s:11:\"icon_indent\";i:1;}}s:5:\"style\";a:1:{s:13:\"section_style\";a:9:{s:17:\"button_text_color\";i:4;s:16:\"background_color\";i:5;s:13:\"border_border\";i:5;s:12:\"border_color\";i:1;s:21:\"typography_typography\";i:4;s:22:\"typography_font_family\";i:4;s:20:\"typography_font_size\";i:4;s:22:\"typography_font_weight\";i:4;s:28:\"text_shadow_text_shadow_type\";i:1;}}s:8:\"advanced\";a:1:{s:17:\"_section_position\";a:3:{s:9:\"_position\";i:2;s:9:\"_offset_x\";i:2;s:9:\"_offset_y\";i:2;}}}}s:6:\"column\";a:3:{s:5:\"count\";i:22;s:15:\"control_percent\";i:0;s:8:\"controls\";a:2:{s:6:\"layout\";a:1:{s:6:\"layout\";a:2:{s:12:\"_inline_size\";i:22;s:21:\"space_between_widgets\";i:1;}}s:8:\"advanced\";a:1:{s:16:\"section_advanced\";a:2:{s:6:\"margin\";i:1;s:7:\"padding\";i:1;}}}}s:7:\"section\";a:3:{s:5:\"count\";i:14;s:15:\"control_percent\";i:1;s:8:\"controls\";a:3:{s:6:\"layout\";a:2:{s:14:\"section_layout\";a:4:{s:6:\"layout\";i:14;s:3:\"gap\";i:14;s:15:\"stretch_section\";i:14;s:13:\"content_width\";i:1;}s:17:\"section_structure\";a:1:{s:9:\"structure\";i:5;}}s:5:\"style\";a:1:{s:18:\"section_background\";a:2:{s:21:\"background_background\";i:14;s:16:\"background_color\";i:14;}}s:8:\"advanced\";a:1:{s:16:\"section_advanced\";a:2:{s:6:\"margin\";i:1;s:7:\"padding\";i:6;}}}}s:5:\"image\";a:3:{s:5:\"count\";i:5;s:15:\"control_percent\";i:1;s:8:\"controls\";a:2:{s:7:\"content\";a:1:{s:13:\"section_image\";a:3:{s:5:\"image\";i:5;s:10:\"image_size\";i:3;s:5:\"align\";i:5;}}s:5:\"style\";a:1:{s:19:\"section_style_image\";a:2:{s:5:\"width\";i:1;s:5:\"space\";i:1;}}}}s:7:\"divider\";a:3:{s:5:\"count\";i:2;s:15:\"control_percent\";i:2;s:8:\"controls\";a:3:{s:7:\"content\";a:1:{s:15:\"section_divider\";a:2:{s:5:\"width\";i:2;s:5:\"align\";i:2;}}s:5:\"style\";a:1:{s:21:\"section_divider_style\";a:1:{s:6:\"weight\";i:2;}}s:8:\"advanced\";a:1:{s:14:\"_section_style\";a:1:{s:8:\"_padding\";i:1;}}}}s:7:\"heading\";a:3:{s:5:\"count\";i:2;s:15:\"control_percent\";i:5;s:8:\"controls\";a:3:{s:7:\"content\";a:1:{s:13:\"section_title\";a:2:{s:5:\"title\";i:2;s:5:\"align\";i:2;}}s:5:\"style\";a:1:{s:19:\"section_title_style\";a:5:{s:11:\"title_color\";i:2;s:21:\"typography_typography\";i:1;s:22:\"typography_font_family\";i:1;s:20:\"typography_font_size\";i:1;s:22:\"typography_font_weight\";i:1;}}s:8:\"advanced\";a:2:{s:14:\"_section_style\";a:1:{s:7:\"_margin\";i:1;}s:19:\"_section_background\";a:2:{s:22:\"_background_background\";i:1;s:17:\"_background_color\";i:1;}}}}s:14:\"image-carousel\";a:3:{s:5:\"count\";i:1;s:15:\"control_percent\";i:1;s:8:\"controls\";a:1:{s:7:\"content\";a:1:{s:22:\"section_image_carousel\";a:3:{s:8:\"carousel\";i:1;s:14:\"thumbnail_size\";i:1;s:14:\"slides_to_show\";i:1;}}}}s:11:\"text-editor\";a:3:{s:5:\"count\";i:5;s:15:\"control_percent\";i:3;s:8:\"controls\";a:3:{s:7:\"content\";a:1:{s:14:\"section_editor\";a:1:{s:6:\"editor\";i:5;}}s:5:\"style\";a:1:{s:13:\"section_style\";a:7:{s:21:\"typography_typography\";i:5;s:22:\"typography_font_family\";i:5;s:20:\"typography_font_size\";i:5;s:22:\"typography_font_weight\";i:5;s:22:\"typography_line_height\";i:3;s:5:\"align\";i:2;s:10:\"text_color\";i:3;}}s:8:\"advanced\";a:1:{s:14:\"_section_style\";a:1:{s:8:\"_padding\";i:5;}}}}s:4:\"html\";a:3:{s:5:\"count\";i:1;s:15:\"control_percent\";i:2;s:8:\"controls\";a:2:{s:7:\"content\";a:1:{s:13:\"section_title\";a:1:{s:4:\"html\";i:1;}}s:8:\"advanced\";a:1:{s:14:\"_section_style\";a:2:{s:7:\"_margin\";i:1;s:8:\"_padding\";i:1;}}}}}');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_posts`
---
-
-CREATE TABLE `wp_posts` (
-  `ID` bigint(20) UNSIGNED NOT NULL,
-  `post_author` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'publish',
-  `comment_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
-  `ping_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `post_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `to_ping` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pinged` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content_filtered` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `guid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `menu_order` int(11) NOT NULL DEFAULT 0,
-  `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
-  `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_count` bigint(20) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Dumping data for table `wp_posts`
 --
@@ -1475,32 +1358,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (226, 1, '2021-03-15 06:45:22', '2021-03-15 06:45:22', '<a href=\"#\" role=\"button\">\n						Learn More\n					</a>\n			<a href=\"#\" role=\"button\">\n						ENG / 中⽂\n					</a>\n										<img width=\"150\" height=\"142\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/11-1.png\" alt=\"\" loading=\"lazy\" />											\n			<a href=\"#\" role=\"button\">\n						NEUC Student\n					</a>\n										<img width=\"150\" height=\"150\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/staff-icon-png-12-1.png\" alt=\"\" loading=\"lazy\" />											\n			<a href=\"#\" role=\"button\">\n						NEUC Staff\n					</a>\n										<img width=\"150\" height=\"150\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/25-1.png\" alt=\"\" loading=\"lazy\" />											\n			<a href=\"#\" role=\"button\">\n						Visitors\n					</a>\n			<h2>Highlights</h2>		\n				<figure><img src=\"http://localhost/NewEra/wp-content/uploads/2021/03/download-2-1.jpg\" alt=\"download (2)\" /></figure><figure><img src=\"http://localhost/NewEra/wp-content/uploads/2021/03/zhengliangshu-1.jpg\" alt=\"zhengliangshu\" /></figure><figure><img src=\"http://localhost/NewEra/wp-content/uploads/2021/03/b3e16d4a-0061-4d24-b235-54d4586f8d1c-1.jpg\" alt=\"b3e16d4a-0061-4d24-b235-54d4586f8d1c\" /></figure>			\n						Previous\n						Next\n										<img width=\"1024\" height=\"481\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/6773331f-db2c-4306-8e04-39e2d20a5f42-1.jpg\" alt=\"\" loading=\"lazy\" />											\n			<h2>FACEBOOK</h2>		\n										<img width=\"800\" height=\"720\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/moksc-800x720-800x720-2.jpg\" alt=\"\" loading=\"lazy\" />											\n		<p style=\"text-align: center;\">「教育是讓孩⼦成為快樂⾃信的⼈，教育的⼿段和⽅法也應該是快樂的。就像⼀根<br />吸管，這頭吸進去如果是苦澀的汁⽔，另⼀端流出來的絕不會是⽢甜的蜜汁。」</p><p style=\"text-align: center;\">Mok Soon Chong</p><p>新纪元⼤学学院宣传短⽚ New Era<br />University College Propaganda</p>		\n			<iframe width=\"460\" height=\"455\" src=\"https://www.youtube.com/embed/B3oh7eY3joA\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>		\n		<p style=\"text-align: center;\">Home</p><p style=\"text-align: center;\">About NEUC</p><p style=\"text-align: center;\">Programme &amp; Faculty</p><p style=\"text-align: center;\">Campus Life</p><p style=\"text-align: center;\">Career</p><p style=\"text-align: center;\">Contact Us</p><p>Basically , this is our university student shor sity student short introduction about their college life and the courses that they tak ses that they taken. </p>', 'In Education No One Should Left Behind', '', 'inherit', 'closed', 'closed', '', '69-revision-v1', '', '', '2021-03-15 06:45:22', '2021-03-15 06:45:22', '', 69, 'http://localhost/NewEra/?p=226', 0, 'revision', '', 0),
 (227, 1, '2021-03-15 06:51:36', '2021-03-15 06:51:36', '<a href=\"#\" role=\"button\">\n						Learn More\n					</a>\n			<a href=\"#\" role=\"button\">\n						ENG / 中⽂\n					</a>\n										<img width=\"150\" height=\"142\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/11-1.png\" alt=\"\" loading=\"lazy\" />											\n			<a href=\"#\" role=\"button\">\n						NEUC Student\n					</a>\n										<img width=\"150\" height=\"150\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/staff-icon-png-12-1.png\" alt=\"\" loading=\"lazy\" />											\n			<a href=\"#\" role=\"button\">\n						NEUC Staff\n					</a>\n										<img width=\"150\" height=\"150\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/25-1.png\" alt=\"\" loading=\"lazy\" />											\n			<a href=\"#\" role=\"button\">\n						Visitors\n					</a>\n			<h2>Highlights</h2>		\n				<figure><img src=\"http://localhost/NewEra/wp-content/uploads/2021/03/download-2-1.jpg\" alt=\"download (2)\" /></figure><figure><img src=\"http://localhost/NewEra/wp-content/uploads/2021/03/zhengliangshu-1.jpg\" alt=\"zhengliangshu\" /></figure><figure><img src=\"http://localhost/NewEra/wp-content/uploads/2021/03/b3e16d4a-0061-4d24-b235-54d4586f8d1c-1.jpg\" alt=\"b3e16d4a-0061-4d24-b235-54d4586f8d1c\" /></figure>			\n						Previous\n						Next\n										<img width=\"1024\" height=\"481\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/6773331f-db2c-4306-8e04-39e2d20a5f42-1.jpg\" alt=\"\" loading=\"lazy\" />											\n			<h2>FACEBOOK</h2>		\n										<img width=\"800\" height=\"720\" src=\"http://localhost/NewEra/wp-content/uploads/2021/03/moksc-800x720-800x720-2.jpg\" alt=\"\" loading=\"lazy\" />											\n		<p style=\"text-align: center;\">「教育是讓孩⼦成為快樂⾃信的⼈，教育的⼿段和⽅法也應該是快樂的。就像⼀根<br />吸管，這頭吸進去如果是苦澀的汁⽔，另⼀端流出來的絕不會是⽢甜的蜜汁。」</p><p style=\"text-align: center;\">Mok Soon Chong</p><p>新纪元⼤学学院宣传短⽚ New Era<br />University College Propaganda</p>		\n			<iframe width=\"460\" height=\"455\" src=\"https://www.youtube.com/embed/B3oh7eY3joA\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>		\n		<p style=\"text-align: center;\">Home</p><p style=\"text-align: center;\">About NEUC</p><p style=\"text-align: center;\">Programme &amp; Faculty</p><p style=\"text-align: center;\">Campus Life</p><p style=\"text-align: center;\">Career</p><p style=\"text-align: center;\">Contact Us</p><p>Basically , this is our university student shor sity student short introduction about their college life and the courses that they tak ses that they taken. </p>', 'In Education No One Should Left Behind', '', 'inherit', 'closed', 'closed', '', '69-autosave-v1', '', '', '2021-03-15 06:51:36', '2021-03-15 06:51:36', '', 69, 'http://localhost/NewEra/?p=227', 0, 'revision', '', 0);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_termmeta`
---
-
-CREATE TABLE `wp_termmeta` (
-  `meta_id` bigint(20) UNSIGNED NOT NULL,
-  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_terms`
---
-
-CREATE TABLE `wp_terms` (
-  `term_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Dumping data for table `wp_terms`
 --
@@ -1511,18 +1368,6 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 (3, 'NEUC PUBLICATION', 'neuc-publication', 0),
 (4, 'RESEARCH AT NEUC', 'research-at-neuc', 0),
 (5, 'QUICK ACCESS', 'quick-access', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_term_relationships`
---
-
-CREATE TABLE `wp_term_relationships` (
-  `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `term_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `wp_term_relationships`
@@ -1551,21 +1396,6 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (198, 5, 0),
 (199, 5, 0);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_term_taxonomy`
---
-
-CREATE TABLE `wp_term_taxonomy` (
-  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL,
-  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `taxonomy` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `count` bigint(20) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Dumping data for table `wp_term_taxonomy`
 --
@@ -1576,19 +1406,6 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (3, 3, 'nav_menu', '', 0, 4),
 (4, 4, 'nav_menu', '', 0, 2),
 (5, 5, 'nav_menu', '', 0, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_usermeta`
---
-
-CREATE TABLE `wp_usermeta` (
-  `umeta_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `wp_usermeta`
@@ -1630,25 +1447,6 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (33, 2, 'wp_user_level', '10'),
 (34, 2, 'dismissed_wp_pointers', '');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_users`
---
-
-CREATE TABLE `wp_users` (
-  `ID` bigint(20) UNSIGNED NOT NULL,
-  `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_nicename` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_url` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_status` int(11) NOT NULL DEFAULT 0,
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Dumping data for table `wp_users`
 --
@@ -1656,228 +1454,6 @@ CREATE TABLE `wp_users` (
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 (1, 'yuethua0495', '$P$B0IbEUKP715fzK169f7aUhT7I7vCU81', 'yuethua0495', 'wongyuethua0495@e.newera.edu.my', 'http://localhost/New%20Era', '2021-03-10 02:15:28', '', 0, 'yuethua0495'),
 (2, 'Kent', '$P$BW41L3MVDgQ8had3L.QNVUVrqW7bXV.', 'kent', 'wongweikent0471@e.newera.edu.my', '', '2021-03-15 06:18:45', '1615789125:$P$BtRSuxf0I8I7rngp8.DFap0FGAd4WZ0', 0, 'Kent');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_wpvivid_scan_result`
---
-
-CREATE TABLE `wp_wpvivid_scan_result` (
-  `id` bigint(20) NOT NULL,
-  `path` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `from_post` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_wpvivid_unused_uploads_files`
---
-
-CREATE TABLE `wp_wpvivid_unused_uploads_files` (
-  `id` bigint(20) NOT NULL,
-  `path` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `folder` text COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `wp_commentmeta`
---
-ALTER TABLE `wp_commentmeta`
-  ADD PRIMARY KEY (`meta_id`),
-  ADD KEY `comment_id` (`comment_id`),
-  ADD KEY `meta_key` (`meta_key`(191));
-
---
--- Indexes for table `wp_comments`
---
-ALTER TABLE `wp_comments`
-  ADD PRIMARY KEY (`comment_ID`),
-  ADD KEY `comment_post_ID` (`comment_post_ID`),
-  ADD KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
-  ADD KEY `comment_date_gmt` (`comment_date_gmt`),
-  ADD KEY `comment_parent` (`comment_parent`),
-  ADD KEY `comment_author_email` (`comment_author_email`(10));
-
---
--- Indexes for table `wp_links`
---
-ALTER TABLE `wp_links`
-  ADD PRIMARY KEY (`link_id`),
-  ADD KEY `link_visible` (`link_visible`);
-
---
--- Indexes for table `wp_options`
---
-ALTER TABLE `wp_options`
-  ADD PRIMARY KEY (`option_id`),
-  ADD UNIQUE KEY `option_name` (`option_name`),
-  ADD KEY `autoload` (`autoload`);
-
---
--- Indexes for table `wp_postmeta`
---
-ALTER TABLE `wp_postmeta`
-  ADD PRIMARY KEY (`meta_id`),
-  ADD KEY `post_id` (`post_id`),
-  ADD KEY `meta_key` (`meta_key`(191));
-
---
--- Indexes for table `wp_posts`
---
-ALTER TABLE `wp_posts`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `post_name` (`post_name`(191)),
-  ADD KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
-  ADD KEY `post_parent` (`post_parent`),
-  ADD KEY `post_author` (`post_author`);
-
---
--- Indexes for table `wp_termmeta`
---
-ALTER TABLE `wp_termmeta`
-  ADD PRIMARY KEY (`meta_id`),
-  ADD KEY `term_id` (`term_id`),
-  ADD KEY `meta_key` (`meta_key`(191));
-
---
--- Indexes for table `wp_terms`
---
-ALTER TABLE `wp_terms`
-  ADD PRIMARY KEY (`term_id`),
-  ADD KEY `slug` (`slug`(191)),
-  ADD KEY `name` (`name`(191));
-
---
--- Indexes for table `wp_term_relationships`
---
-ALTER TABLE `wp_term_relationships`
-  ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`),
-  ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
-
---
--- Indexes for table `wp_term_taxonomy`
---
-ALTER TABLE `wp_term_taxonomy`
-  ADD PRIMARY KEY (`term_taxonomy_id`),
-  ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
-  ADD KEY `taxonomy` (`taxonomy`);
-
---
--- Indexes for table `wp_usermeta`
---
-ALTER TABLE `wp_usermeta`
-  ADD PRIMARY KEY (`umeta_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `meta_key` (`meta_key`(191));
-
---
--- Indexes for table `wp_users`
---
-ALTER TABLE `wp_users`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `user_login_key` (`user_login`),
-  ADD KEY `user_nicename` (`user_nicename`),
-  ADD KEY `user_email` (`user_email`);
-
---
--- Indexes for table `wp_wpvivid_scan_result`
---
-ALTER TABLE `wp_wpvivid_scan_result`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `wp_wpvivid_unused_uploads_files`
---
-ALTER TABLE `wp_wpvivid_unused_uploads_files`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `wp_commentmeta`
---
-ALTER TABLE `wp_commentmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `wp_comments`
---
-ALTER TABLE `wp_comments`
-  MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wp_links`
---
-ALTER TABLE `wp_links`
-  MODIFY `link_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `wp_options`
---
-ALTER TABLE `wp_options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
-
---
--- AUTO_INCREMENT for table `wp_postmeta`
---
-ALTER TABLE `wp_postmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
-
---
--- AUTO_INCREMENT for table `wp_posts`
---
-ALTER TABLE `wp_posts`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
-
---
--- AUTO_INCREMENT for table `wp_termmeta`
---
-ALTER TABLE `wp_termmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `wp_terms`
---
-ALTER TABLE `wp_terms`
-  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `wp_term_taxonomy`
---
-ALTER TABLE `wp_term_taxonomy`
-  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `wp_usermeta`
---
-ALTER TABLE `wp_usermeta`
-  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT for table `wp_users`
---
-ALTER TABLE `wp_users`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `wp_wpvivid_scan_result`
---
-ALTER TABLE `wp_wpvivid_scan_result`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `wp_wpvivid_unused_uploads_files`
---
-ALTER TABLE `wp_wpvivid_unused_uploads_files`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
